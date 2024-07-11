@@ -1,0 +1,126 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\marij\\source\\repos\\CliTrader\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{65A2FFA7-7DB0-4FD6-95C0-7079A1C0DC45}|CliTrader\\CliTrader.csproj|c:\\users\\marij\\source\\repos\\clitrader\\clitrader\\orderconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65A2FFA7-7DB0-4FD6-95C0-7079A1C0DC45}|CliTrader\\CliTrader.csproj|solutionrelative:clitrader\\orderconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65A2FFA7-7DB0-4FD6-95C0-7079A1C0DC45}|CliTrader\\CliTrader.csproj|c:\\users\\marij\\source\\repos\\clitrader\\clitrader\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65A2FFA7-7DB0-4FD6-95C0-7079A1C0DC45}|CliTrader\\CliTrader.csproj|solutionrelative:clitrader\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65A2FFA7-7DB0-4FD6-95C0-7079A1C0DC45}|CliTrader\\CliTrader.csproj|c:\\users\\marij\\source\\repos\\clitrader\\clitrader\\userinputdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65A2FFA7-7DB0-4FD6-95C0-7079A1C0DC45}|CliTrader\\CliTrader.csproj|solutionrelative:clitrader\\userinputdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65A2FFA7-7DB0-4FD6-95C0-7079A1C0DC45}|CliTrader\\CliTrader.csproj|c:\\users\\marij\\source\\repos\\clitrader\\clitrader\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65A2FFA7-7DB0-4FD6-95C0-7079A1C0DC45}|CliTrader\\CliTrader.csproj|solutionrelative:clitrader\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65A2FFA7-7DB0-4FD6-95C0-7079A1C0DC45}|CliTrader\\CliTrader.csproj|c:\\users\\marij\\source\\repos\\clitrader\\clitrader\\models\\orderplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65A2FFA7-7DB0-4FD6-95C0-7079A1C0DC45}|CliTrader\\CliTrader.csproj|solutionrelative:clitrader\\models\\orderplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65A2FFA7-7DB0-4FD6-95C0-7079A1C0DC45}|CliTrader\\CliTrader.csproj|c:\\users\\marij\\source\\repos\\clitrader\\clitrader\\models\\orderbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65A2FFA7-7DB0-4FD6-95C0-7079A1C0DC45}|CliTrader\\CliTrader.csproj|solutionrelative:clitrader\\models\\orderbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrderPlan.cs",
+              "DocumentMoniker": "C:\\Users\\marij\\source\\repos\\CliTrader\\CliTrader\\Models\\OrderPlan.cs",
+              "RelativeDocumentMoniker": "CliTrader\\Models\\OrderPlan.cs",
+              "ToolTip": "C:\\Users\\marij\\source\\repos\\CliTrader\\CliTrader\\Models\\OrderPlan.cs",
+              "RelativeToolTip": "CliTrader\\Models\\OrderPlan.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T20:07:37.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderConverter.cs",
+              "DocumentMoniker": "C:\\Users\\marij\\source\\repos\\CliTrader\\CliTrader\\OrderConverter.cs",
+              "RelativeDocumentMoniker": "CliTrader\\OrderConverter.cs",
+              "ToolTip": "C:\\Users\\marij\\source\\repos\\CliTrader\\CliTrader\\OrderConverter.cs",
+              "RelativeToolTip": "CliTrader\\OrderConverter.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T20:07:31.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserInputData.cs",
+              "DocumentMoniker": "C:\\Users\\marij\\source\\repos\\CliTrader\\CliTrader\\UserInputData.cs",
+              "RelativeDocumentMoniker": "CliTrader\\UserInputData.cs",
+              "ToolTip": "C:\\Users\\marij\\source\\repos\\CliTrader\\CliTrader\\UserInputData.cs",
+              "RelativeToolTip": "CliTrader\\UserInputData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T20:07:15.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrderBook.cs",
+              "DocumentMoniker": "C:\\Users\\marij\\source\\repos\\CliTrader\\CliTrader\\Models\\OrderBook.cs",
+              "RelativeDocumentMoniker": "CliTrader\\Models\\OrderBook.cs",
+              "ToolTip": "C:\\Users\\marij\\source\\repos\\CliTrader\\CliTrader\\Models\\OrderBook.cs",
+              "RelativeToolTip": "CliTrader\\Models\\OrderBook.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T20:06:38.643Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\marij\\source\\repos\\CliTrader\\CliTrader\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "CliTrader\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\marij\\source\\repos\\CliTrader\\CliTrader\\Models\\Order.cs",
+              "RelativeToolTip": "CliTrader\\Models\\Order.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T20:05:50.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\marij\\source\\repos\\CliTrader\\CliTrader\\Program.cs",
+              "RelativeDocumentMoniker": "CliTrader\\Program.cs",
+              "ToolTip": "C:\\Users\\marij\\source\\repos\\CliTrader\\CliTrader\\Program.cs",
+              "RelativeToolTip": "CliTrader\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T19:49:50.93Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
