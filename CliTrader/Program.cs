@@ -17,7 +17,7 @@ class Program
         {
             Console.Write("Enter b for buying, s for selling: ");
             string userEnter = Console.ReadLine();
-            if (!string.IsNullOrEmpty(userEnter) && (Buy.Equals(userEnter.ToUpper()) || Sell.Equals(userEnter.ToUpper())))
+            if (!string.IsNullOrEmpty(userEnter) && (Buy.Equals(userEnter.ToUpper().Trim()) || Sell.Equals(userEnter.ToUpper().Trim())))
             {
                 typeOfOrder = userEnter.ToUpper();
             }
@@ -66,7 +66,7 @@ class Program
 
         if (!File.Exists(filePath))
         {
-            //log
+            //log?
             throw new Exception("We have no data");
         }
 
@@ -143,11 +143,16 @@ class Program
         //tole bi šlo verjetno v utilse
         List<Order> orders = await ReadFileAndGetListOfOrders(GetOrderType(inputData.TypeOfOrder));
 
+        OrderType orderType = GetOrderType(inputData.TypeOfOrder);
         double remainingAmount = inputData.Amount;
 
         List<OrderPlan> retVal = new List<OrderPlan>();
+        if (orders == null || orders.Count == 0)
+        {
+            throw new Exception("We can't give you a plan.");
+        }
 
-        if (OrderType.Buy.Equals(GetOrderType(inputData.TypeOfOrder)))
+        if (OrderType.Buy.Equals(orderType))
         {
             orders = orders.OrderBy(x => x.Price).ToList();
         }
@@ -155,44 +160,117 @@ class Program
         {
             orders = orders.OrderByDescending(x => x.Price).ToList();
         }
+        Dictionary<string, List<double>> balances = new Dictionary<string, List<double>>();
+
+        for (int i = 0; i < 10; i++)
+        {
+            List<double> balance = new List<double>() { 10, 5000 };// list btc balance, eur balance
+            balances.Add($"ExchangeName_{i + 1}", balance);
+
+        }
+        List<double> exchangeBalance;//available on exchange
+        double maxAllowedFromOrder;
         foreach (Order order in orders)
         {
             if (remainingAmount <= 0)
                 break;
-            //sploh možno?
+
             if (order.Amount <= 0)
             {
                 continue;
             }
+            maxAllowedFromOrder = order.Amount;
 
-            if (order.Amount >= remainingAmount)
+            exchangeBalance = GetBalance(balances, order.Exchange, orderType); // gets balance of the exchange
+            //if need less then order has amount
+            if (order.Amount > remainingAmount)
             {
+                maxAllowedFromOrder = remainingAmount;
+            }
+            //buy
+            if (OrderType.Buy.Equals(orderType))
+            {
+                double balanceRemaining = exchangeBalance[0];
+                if (balanceRemaining.Equals(0))
+                {
+
+                    continue;
+                }
+                if (exchangeBalance[0] < maxAllowedFromOrder)//exchange has less balance than we want to take
+                {
+                    maxAllowedFromOrder = exchangeBalance[0];
+                }
+                //add to plan
                 retVal.Add(new OrderPlan
                 {
                     Exchange = order.Exchange,
-                    Amount = remainingAmount,
+                    Amount = maxAllowedFromOrder,
                     Price = order.Price
                 });
-
-                remainingAmount = 0;
-                break;
+                remainingAmount -= maxAllowedFromOrder;
+                balanceRemaining -= maxAllowedFromOrder;
+                UpdateBalance(balances, order.Exchange, orderType, balanceRemaining);
             }
+            // sell
             else
             {
+                double balanceRemaining = exchangeBalance[1];
+                if (balanceRemaining.Equals(0))
+                {
+                    continue;
+                }
+                if (maxAllowedFromOrder * order.Price > exchangeBalance[1])
+                {
+                    maxAllowedFromOrder = exchangeBalance[1] / order.Price;
+                }
                 retVal.Add(new OrderPlan
                 {
                     Exchange = order.Exchange,
-                    Amount = order.Amount,
+                    Amount = maxAllowedFromOrder,
                     Price = order.Price
                 });
-
-                remainingAmount -= order.Amount;
+                remainingAmount -= maxAllowedFromOrder;
+                balanceRemaining -= maxAllowedFromOrder * order.Price;
+                UpdateBalance(balances, order.Exchange, orderType, balanceRemaining);
             }
         }
         if (remainingAmount > 0)
         {
-            throw new Exception("Based on your requests, we can't provide a plan for the amount of BTC you want to buy/sell.");
+            throw new Exception("Based on your requests, we can't provide a plan for the amount of BTC you want to buy/sell");
         }
         return retVal;
+
+    }
+
+
+    static List<double> GetBalance(Dictionary<string, List<double>> balances, string name, OrderType orderType)
+    {
+        if (balances.TryGetValue(name, out List<double> balanceList))
+        {
+            return balanceList;
+        }
+        else
+        {
+            throw new KeyNotFoundException($"No balance found for name: {name}");
+        }
+    }
+    static void UpdateBalance(Dictionary<string, List<double>> balances, string name, OrderType ordertype, double newBalance)
+    {
+        if (balances.TryGetValue(name, out List<double> balanceList))
+        {
+            switch (ordertype)
+            {
+                case OrderType.Buy:
+                    balanceList[0] = newBalance; //  BTC balance is at index 0
+                    break;
+                case OrderType.Sell:
+                    balanceList[1] = newBalance; //  EUR balance is at index 1
+                    break;
+            }
+        }
+        else
+        {
+            throw new KeyNotFoundException($"No balance found for name: {name}");
+        }
     }
 }

@@ -16,3 +16,4 @@ C:\Users\marij\source\repos\CliTrader\CliTrader\obj\Debug\net8.0\CliTrader.cspro
 C:\Users\marij\source\repos\CliTrader\CliTrader\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\marij\source\repos\CliTrader\CliTrader\obj\Debug\net8.0\CliTrader.csproj.Up2Date
 C:\Users\marij\source\repos\CliTrader\CliTrader\bin\Debug\net8.0\order_books_data
+C:\Users\marij\source\repos\CliTrader\CliTrader\obj\Debug\net8.0\CliTrader.sourcelink.json
