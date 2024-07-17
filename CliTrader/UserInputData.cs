@@ -10,3 +10,4 @@ public class UserInputData
     public double Amount { get; set; }
 }
 
+

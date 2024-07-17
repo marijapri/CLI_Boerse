@@ -1,11 +1,18 @@
 ﻿
 using Models;
 using Newtonsoft.Json;
+using System.Globalization;
+using System.Net.Http;
+using System.Text;
+using System.Threading;
+using System.Web;
+
 
 class Program
 {
     private const string Buy = "B";
     private const string Sell = "S";
+    private static string _url = "http://localhost:5264";
 
     static async Task Main(string[] args)
     {
@@ -25,26 +32,79 @@ class Program
         while (amount <= 0)
         {
             Console.Write("Enter amount: ");
-            double.TryParse(Console.ReadLine(), out amount);
+            string enterAmount = Console.ReadLine();
+            if (!double.TryParse(enterAmount.Replace(".",","), out amount) || amount <= 0)
+            {
+                Console.WriteLine("Invalid input. Please enter a positive number.");
+            }
+            //double.TryParse(Console.ReadLine(), out amount);
         }
 
         bool buy = Buy.Equals(typeOfOrder.ToUpper()) ? true : false;
 
 
         UserInputData input = new UserInputData() { Amount = amount, TypeOfOrder = buy ? "buy" : "sell" };
+        //try
+        //{
         try
         {
-            List<OrderPlan> neki = await CalculateBestPlanForUser(input);
-            Console.WriteLine("This plan for your order:");
-            foreach (OrderPlan plan in neki)
+            using (var client = new HttpClient())
             {
-                Console.WriteLine(string.Format("At Exchange: {0},  Amount you are buying: {1},  for this price: {2} ", plan.Exchange, plan.Amount, plan.Price));
+
+                var queryString = HttpUtility.ParseQueryString(string.Empty);
+                var amountString = input.Amount.ToString(CultureInfo.InvariantCulture);
+
+                queryString["Amount"] = amountString;
+                queryString["TypeOfOrder"] = input.TypeOfOrder;
+
+                // Construct the full URL
+                string url = $"{_url}/api/getPlan?{queryString}";
+
+                // Send the HTTP GET request
+                HttpResponseMessage response = await client.GetAsync(url);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseData = await response.Content.ReadAsStringAsync();
+                    List<OrderPlan> orderPlans = JsonConvert.DeserializeObject<List<OrderPlan>>(responseData);
+                    foreach (OrderPlan plan in orderPlans)
+                    {
+                        Console.WriteLine(string.Format("At Exchange: {0},  Amount you are buying: {1},  for this price: {2} ", plan.Exchange, plan.Amount, plan.Price));
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Failed to get the best plan: " + response.ReasonPhrase);
+                }
             }
+
         }
+
+        catch (HttpRequestException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
         }
+
+
+
+
+
+        //List<OrderPlan> planList = await CalculateBestPlanForUser(input);
+        //Console.WriteLine("This plan for your order:");
+        //foreach (OrderPlan plan in planList)
+        //{
+        //    Console.WriteLine(string.Format("At Exchange: {0},  Amount you are buying: {1},  for this price: {2} ", plan.Exchange, plan.Amount, plan.Price));
+        //}
+        //}
+        //catch (Exception ex)
+        //{
+        //    Console.WriteLine(ex.Message);
+        //}
     }
 
     public static OrderType GetOrderType(string order)

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CliTrader")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ad68d188fd6342ed0e8d07e1df4463c5cf1082b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ec920aef01399186f1294282423703b990af1bf")]
 [assembly: System.Reflection.AssemblyProductAttribute("CliTrader")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CliTrader")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
